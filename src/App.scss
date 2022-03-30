@@ -1,5 +1,148 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800;900&family=Roboto+Mono:wght@300;400;500;600;700&display=swap");
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  .Main {
+    background: #e1e1e1;
+
+    width: 100%;
+    max-width: 375px;
+    height: 100%;
+    max-height: 800px;
+    border-radius: 5px;
+    position: relative;
+
+    .balance-form {
+      padding: 15px;
+
+      .detail {
+        border: 2px solid #000;
+        padding: 15px;
+        background: #f0f0f0;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+
+        .header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 10px;
+
+          h1 {
+            font-size: 28px;
+            font-weight: 700;
+          }
+
+          img {
+            width: 23px;
+            height: 23px;
+          }
+        }
+
+        p {
+          font-family: "Roboto Mono", monospace;
+          font-size: 14px;
+          font-weight: 400;
+        }
+      }
+
+      .invalid-detail-border {
+        border-bottom: 2px solid #fc5404;
+      }
+
+      .card-input {
+        width: 100%;
+        height: 50px;
+        background: #fff;
+        border: 2px solid #000;
+        border-top: none;
+        position: relative;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+
+        input {
+          width: 100%;
+          height: 100%;
+          border: none;
+          border-bottom-left-radius: 15px;
+          border-bottom-right-radius: 15px;
+
+          padding: 15px;
+          font-family: "Roboto Mono", monospace;
+          font-size: 15px;
+          color: #292929;
+
+          &::placeholder {
+            font-size: 15px;
+          }
+
+          &:focus {
+            outline: none;
+          }
+        }
+
+        .close {
+          position: absolute;
+          right: 15px;
+          top: 50%;
+          transform: translateY(-50%);
+          font-size: 16px;
+          cursor: pointer;
+          transition: 0.3s ease-in-out all;
+
+          &:hover {
+            font-size: 18px;
+          }
+        }
+      }
+
+      .invalid-input-border {
+        border: 2px solid #fc5404;
+        border-top: none;
+      }
+
+      .check-button {
+        margin-top: 15px;
+        background: #000;
+        border-radius: 15px;
+        color: #fff;
+        width: 100%;
+        height: 50px;
+        font-size: 16px;
+        font-weight: 700;
+        border: none;
+        cursor: pointer;
+        transition: 0.3s ease-in-out all;
+
+        &:hover {
+          background: #292929;
+        }
+      }
+    }
+
+    .alerts {
+      position: absolute;
+      bottom: 15px;
+      width: calc(100% - 30px);
+      left: 50%;
+      transform: translateX(-50%);
+      height: 50px;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      //   text-transform: uppercase;
+      font-weight: 700;
+    }
+  }
 }
