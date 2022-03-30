@@ -14,108 +14,136 @@
   height: 100vh;
 
   .Main {
-    background: #e1e1e1;
+    background: linear-gradient(180deg, rgba(249, 245, 242, 0) 0%, #faf3ee 100%);
 
     width: 100%;
     max-width: 375px;
     height: 100%;
-    max-height: 800px;
+    max-height: 812px;
     border-radius: 5px;
     position: relative;
 
     .balance-form {
       padding: 15px;
 
-      .detail {
-        border: 2px solid #000;
-        padding: 15px;
-        background: #f0f0f0;
-        border-top-left-radius: 15px;
-        border-top-right-radius: 15px;
+      .container {
+        border: 1px solid #000;
+        border-radius: 10px;
 
-        .header {
+        .detail {
+          padding: 15px;
+          background: #efe6dd;
+          border-top-left-radius: 10px;
+          border-top-right-radius: 10px;
+
+          .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+
+            h1 {
+              font-size: 28px;
+              line-height: 32.81px;
+              font-weight: 700;
+            }
+
+            img {
+              width: 25.23px;
+              height: 23.51px;
+            }
+          }
+
+          p {
+            font-family: "Roboto Mono", monospace;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 21px;
+          }
+        }
+
+        .card-input {
+          width: 100%;
+          height: 50px;
+          background: #fff;
+          position: relative;
+          border-bottom-left-radius: 10px;
+          border-bottom-right-radius: 10px;
+
+          input {
+            width: 100%;
+            height: 100%;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border: none;
+            border-top: 1px solid #000;
+
+            padding: 15px;
+            font-family: "Roboto Mono", monospace;
+            font-size: 14px;
+            color: #292929;
+            font-weight: 400;
+
+            &::placeholder {
+              font-size: 14px;
+              color: rgba(62, 52, 43, 0.5);
+            }
+
+            &:focus {
+              outline: none;
+            }
+          }
+
+          .close {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20px;
+            cursor: pointer;
+            transition: 0.3s ease-in-out all;
+
+            &:hover {
+              font-size: 22px;
+            }
+          }
+        }
+
+        .invalid-input-border {
+          input {
+            border-top: 1px solid #ff4d00;
+            border-bottom: 1px solid #ff4d00;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+          }
+        }
+
+        .validations {
+          height: 55px;
+          background: #eeebe8;
+          border-top: 1px solid #000;
           display: flex;
-          justify-content: space-between;
+          justify-content: center;
           align-items: center;
-          margin-bottom: 10px;
+          border-bottom-left-radius: 10px;
+          border-bottom-right-radius: 10px;
 
-          h1 {
-            font-size: 28px;
+          p {
+            font-family: "Roboto Mono", monospace;
+            font-size: 14px;
             font-weight: 700;
           }
-
-          img {
-            width: 23px;
-            height: 23px;
-          }
         }
 
-        p {
-          font-family: "Roboto Mono", monospace;
-          font-size: 14px;
-          font-weight: 400;
+        .invalid-validations-border {
+          border-top: none;
         }
-      }
-
-      .invalid-detail-border {
-        border-bottom: 2px solid #fc5404;
-      }
-
-      .card-input {
-        width: 100%;
-        height: 50px;
-        background: #fff;
-        border: 2px solid #000;
-        border-top: none;
-        position: relative;
-        border-bottom-left-radius: 15px;
-        border-bottom-right-radius: 15px;
-
-        input {
-          width: 100%;
-          height: 100%;
-          border: none;
-          border-bottom-left-radius: 15px;
-          border-bottom-right-radius: 15px;
-
-          padding: 15px;
-          font-family: "Roboto Mono", monospace;
-          font-size: 15px;
-          color: #292929;
-
-          &::placeholder {
-            font-size: 15px;
-          }
-
-          &:focus {
-            outline: none;
-          }
-        }
-
-        .close {
-          position: absolute;
-          right: 15px;
-          top: 50%;
-          transform: translateY(-50%);
-          font-size: 16px;
-          cursor: pointer;
-          transition: 0.3s ease-in-out all;
-
-          &:hover {
-            font-size: 18px;
-          }
-        }
-      }
-
-      .invalid-input-border {
-        border: 2px solid #fc5404;
-        border-top: none;
       }
 
       .check-button {
         margin-top: 15px;
         background: #000;
-        border-radius: 15px;
+        border-radius: 10px;
         color: #fff;
         width: 100%;
         height: 50px;
@@ -129,20 +157,6 @@
           background: #292929;
         }
       }
-    }
-
-    .alerts {
-      position: absolute;
-      bottom: 15px;
-      width: calc(100% - 30px);
-      left: 50%;
-      transform: translateX(-50%);
-      height: 50px;
-      padding: 15px;
-      border-radius: 10px;
-      text-align: center;
-      //   text-transform: uppercase;
-      font-weight: 700;
     }
   }
 }

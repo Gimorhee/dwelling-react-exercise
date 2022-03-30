@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { calculateBalance } from "../utils/functions.js";
-import BalanceForm from "./BalanceForm";
-import Alerts from "./Alerts";
+import houseImg from "../assets/houseImg.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
+// import Alerts from "./Alerts";
 
 const Main = () => {
   const [cardNumber, setCardNumber] = useState("");
@@ -31,20 +33,20 @@ const Main = () => {
 
     if (cardNumber.length === 0) {
       setAlerts({
-        text: "Please enter card number.",
-        color: "#FC5404",
+        text: "Please enter card number",
+        color: "#FF4D00",
         status: false,
       });
     } else if (cardNumber.length < 19) {
       setAlerts({
-        text: "Invalid number. Please try again.",
-        color: "#FC5404",
+        text: "Invalid number",
+        color: "#FF4D00",
         status: false,
       });
     } else {
       setAlerts({
         text: `Your balance is $` + calculateBalance(cardNumber),
-        color: "#219F94",
+        color: "#1E7500",
         status: true,
       });
     }
@@ -52,9 +54,37 @@ const Main = () => {
 
   return (
     <main className="Main">
-      <BalanceForm cardNumber={cardNumber} checkBalance={checkBalance} alerts={alerts} onKeyPress={onKeyPress} changeCardNumber={changeCardNumber} eraseAll={eraseAll} />
+      <form className="balance-form" onSubmit={(e) => checkBalance(e)}>
+        <div className="container">
+          <section className="detail">
+            <div className="header">
+              <h1>Balance checker</h1>
+              <img src={houseImg} alt="dwelling-logo" />
+            </div>
+            <p>Enter your card number to check it's balance.</p>
+          </section>
+          <section className={alerts && !alerts.status ? "card-input invalid-input-border" : "card-input"}>
+            <input
+              pattern="^[\d ]*$"
+              type="tel"
+              inputMode="numeric"
+              value={cardNumber}
+              onKeyDown={(e) => onKeyPress(e)}
+              onChange={(e) => changeCardNumber(e)}
+              maxLength="19"
+              placeholder="xxxx xxxx xxxx xxxx"
+            />
+            {cardNumber.length > 0 && <FontAwesomeIcon icon={faXmark} className="close" onClick={eraseAll} />}
+          </section>
 
-      {alerts !== "" && alerts && <Alerts alerts={alerts} />}
+          {alerts !== "" && alerts && (
+            <div className={alerts && !alerts.status ? "validations invalid-validations-border" : "validations"}>
+              <p style={{ color: alerts.color }}>{alerts.text}</p>
+            </div>
+          )}
+        </div>
+        <button className="check-button">Check</button>
+      </form>
     </main>
   );
 };
