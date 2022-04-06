@@ -3,7 +3,6 @@ import { calculateBalance } from "../utils/functions.js";
 import houseImg from "../assets/houseImg.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
-// import Alerts from "./Alerts";
 
 const Main = () => {
   const [cardNumber, setCardNumber] = useState("");
